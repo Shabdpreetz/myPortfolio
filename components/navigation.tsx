@@ -7,6 +7,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, Download } from "lucide-react"
 import { cn } from "@/lib/utils"
+import gsap from "gsap"
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+
+gsap.registerPlugin(ScrollToPlugin)
+
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -48,12 +53,26 @@ export function Navigation() {
     }
   }, [])
 
+  // const scrollToSection = (href: string) => {
+  //   const element = document.getElementById(href.slice(1))
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: "smooth" })
+  //   }
+  // }
+
   const scrollToSection = (href: string) => {
-    const element = document.getElementById(href.slice(1))
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+  const target = document.getElementById(href.slice(1))
+  const navOffset = document.querySelector("nav")?.offsetHeight || 0
+
+  if (target) {
+    gsap.to(window, {
+      duration: 0,
+      scrollTo: { y: target, offsetY: navOffset },
+      ease: "power1.out",
+    })
   }
+}
+
 
   return (
     <nav
