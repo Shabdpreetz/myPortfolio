@@ -14,8 +14,8 @@ export function HeroSection() {
     setMounted(true)
   }, [])
 
-  const scrollToAbout = () => {
-    const element = document.getElementById("about")
+  const scrollToProjects = () => {
+    const element = document.getElementById("projects")
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
@@ -84,8 +84,23 @@ export function HeroSection() {
             <Button
               // color="transparent"
               size="lg"
-              className="text-lg bg-transparent text-white hover:text-black  border border-white   px-8 py-3 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={scrollToAbout}
+              // className="text-lg bg-transparent text-white hover:text-black  border border-white   px-8 py-3 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+               
+            // className="text-lg px-8 py-3 bg-transparent 
+            //  text-black border border-black 
+            //  hover:text-primary hover:border-primary 
+            //  dark:text-white dark:border-white 
+            //  hover:scale-105 transition-all duration-300 
+            //  shadow-lg hover:shadow-xl"
+
+            className="text-lg px-8 py-3 bg-transparent 
+           text-black border border-black 
+           hover:text-white hover:border-black hover:bg-black 
+           dark:text-white dark:border-white 
+           dark:hover:text-black dark:hover:border-white dark:hover:bg-white 
+           hover:scale-105 transition-all duration-300 
+           shadow-lg hover:shadow-xl"
+              onClick={scrollToProjects}
             >
 
               View My Work
